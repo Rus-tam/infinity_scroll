@@ -16,8 +16,7 @@ let totalImages = 0
 let photosArray = []
 let initialLoad = true
 
-console.log(queryParameter)
-
+//getting queryParameter meaning
 const getQueryParameter = () => {
     const parameterJSON = localStorage.getItem('queryParameter')
     try {
@@ -28,8 +27,6 @@ const getQueryParameter = () => {
 }
 
 let queryParameter = getQueryParameter()
-console.log('gggggg', queryParameter)
-
 // Unsplash API
 let count = 5
 const apiKey = 'FKqHOTgeujR0boBSA4NHJTez2AlbMP8d36AF2-71rCw'
@@ -107,11 +104,12 @@ window.addEventListener('scroll', () => {
     }
 })
 
+//Buttons
 winterButton.addEventListener('click', () => {
     location.reload()
     queryParameter = 'winter'
     localStorage.setItem('queryParameter', JSON.stringify(queryParameter))
-    let apiUrl = `https://api.unsplash.com/photos/random/?client_id=${apiKey}&count=${count}&query=${queryParameter}`
+    apiUrl = `https://api.unsplash.com/photos/random/?client_id=${apiKey}&count=${count}&query=${queryParameter}`
     getPhotos()
 })
 
@@ -119,7 +117,7 @@ summerButton.addEventListener('click', () => {
     location.reload()
     queryParameter = 'summer'
     localStorage.setItem('queryParameter', JSON.stringify(queryParameter))
-    let apiUrl = `https://api.unsplash.com/photos/random/?client_id=${apiKey}&count=${count}&query=${queryParameter}`
+    apiUrl = `https://api.unsplash.com/photos/random/?client_id=${apiKey}&count=${count}&query=${queryParameter}`
     getPhotos()
 })
 
@@ -127,7 +125,7 @@ christmasButton.addEventListener('click', () => {
     location.reload()
     queryParameter = 'christmas'
     localStorage.setItem('queryParameter', JSON.stringify(queryParameter))
-    let apiUrl = `https://api.unsplash.com/photos/random/?client_id=${apiKey}&count=${count}&query=${queryParameter}`
+    apiUrl = `https://api.unsplash.com/photos/random/?client_id=${apiKey}&count=${count}&query=${queryParameter}`
     getPhotos()
 })
 
@@ -135,7 +133,7 @@ natureButton.addEventListener('click', () => {
     location.reload()
     queryParameter = 'nature'
     localStorage.setItem('queryParameter', JSON.stringify(queryParameter))
-    let apiUrl = `https://api.unsplash.com/photos/random/?client_id=${apiKey}&count=${count}&query=${queryParameter}`
+    apiUrl = `https://api.unsplash.com/photos/random/?client_id=${apiKey}&count=${count}&query=${queryParameter}`
     getPhotos()
 })
 
@@ -143,7 +141,7 @@ cityButton.addEventListener('click', () => {
     location.reload()
     queryParameter = 'city'
     localStorage.setItem('queryParameter', JSON.stringify(queryParameter))
-    let apiUrl = `https://api.unsplash.com/photos/random/?client_id=${apiKey}&count=${count}&query=${queryParameter}`
+    apiUrl = `https://api.unsplash.com/photos/random/?client_id=${apiKey}&count=${count}&query=${queryParameter}`
     getPhotos()
 })
 
@@ -151,7 +149,7 @@ catsButton.addEventListener('click', () => {
     location.reload()
     queryParameter = 'cats'
     localStorage.setItem('queryParameter', JSON.stringify(queryParameter))
-    let apiUrl = `https://api.unsplash.com/photos/random/?client_id=${apiKey}&count=${count}&query=${queryParameter}`
+    apiUrl = `https://api.unsplash.com/photos/random/?client_id=${apiKey}&count=${count}&query=${queryParameter}`
     getPhotos()
 })
 
@@ -159,6 +157,6 @@ dogsButton.addEventListener('click', () => {
     location.reload()
     queryParameter = 'dogs'
     localStorage.setItem('queryParameter', JSON.stringify(queryParameter))
-    let apiUrl = `https://api.unsplash.com/photos/random/?client_id=${apiKey}&count=${count}&query=${queryParameter}`
+    apiUrl = `https://api.unsplash.com/photos/random/?client_id=${apiKey}&count=${count}&query=${queryParameter}`
     getPhotos()
 })
