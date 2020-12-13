@@ -1,5 +1,14 @@
 const imageContainer = document.getElementById('image-container')
 const loader = document.getElementById('loader')
+const idForRemove = document.getElementById('id-for-remove')
+
+const winterButton = document.getElementById('winter')
+const summerButton = document.getElementById('summer')
+const christmasButton = document.getElementById('christmas')
+const natureButton = document.getElementById('nature')
+const cityButton = document.getElementById('city')
+const catsButton = document.getElementById('cats')
+const dogsButton = document.getElementById('dogs')
 
 let ready = false
 let imagesLoaded = 0
@@ -7,23 +16,37 @@ let totalImages = 0
 let photosArray = []
 let initialLoad = true
 
+console.log(queryParameter)
+
+const getQueryParameter = () => {
+    const parameterJSON = localStorage.getItem('queryParameter')
+    try {
+        return parameterJSON ? JSON.parse(parameterJSON) : []
+    } catch (e) {
+        return []
+    }
+}
+
+let queryParameter = getQueryParameter()
+console.log('gggggg', queryParameter)
+
 // Unsplash API
-let count = 10
+let count = 5
 const apiKey = 'FKqHOTgeujR0boBSA4NHJTez2AlbMP8d36AF2-71rCw'
-let apiUrl = `https://api.unsplash.com/photos/random/?client_id=${apiKey}&count=${count}`
+let apiUrl = `https://api.unsplash.com/photos/random/?client_id=${apiKey}&count=${count}&query=${queryParameter}`
 
 //Check if all images were loaded
 const imageLoaded = () => {
+    queryParameter = getQueryParameter()
     ready = false
     imagesLoaded++
     if (imagesLoaded === totalImages) {
         ready = true
         loader.hidden = true
-        count = 30
-        apiUrl = `https://api.unsplash.com/photos/random/?client_id=${apiKey}&count=${count}`
+        count = 15
+        apiUrl =`https://api.unsplash.com/photos/random/?client_id=${apiKey}&count=${count}&query=${queryParameter}`
     }
 }
-
 
 //Helper Function to Set Attributes on DOM Elements
 const setAttributes = (element, attributes) =>{
@@ -58,7 +81,6 @@ const displayPhotos = () => {
         //Put <img> inside <a>, then put both inside imageContainer Element
         item.appendChild(img)
         imageContainer.appendChild(item)
-
     })
 }
 
@@ -83,4 +105,60 @@ window.addEventListener('scroll', () => {
         ready = false
         getPhotos()
     }
+})
+
+winterButton.addEventListener('click', () => {
+    location.reload()
+    queryParameter = 'winter'
+    localStorage.setItem('queryParameter', JSON.stringify(queryParameter))
+    let apiUrl = `https://api.unsplash.com/photos/random/?client_id=${apiKey}&count=${count}&query=${queryParameter}`
+    getPhotos()
+})
+
+summerButton.addEventListener('click', () => {
+    location.reload()
+    queryParameter = 'summer'
+    localStorage.setItem('queryParameter', JSON.stringify(queryParameter))
+    let apiUrl = `https://api.unsplash.com/photos/random/?client_id=${apiKey}&count=${count}&query=${queryParameter}`
+    getPhotos()
+})
+
+christmasButton.addEventListener('click', () => {
+    location.reload()
+    queryParameter = 'christmas'
+    localStorage.setItem('queryParameter', JSON.stringify(queryParameter))
+    let apiUrl = `https://api.unsplash.com/photos/random/?client_id=${apiKey}&count=${count}&query=${queryParameter}`
+    getPhotos()
+})
+
+natureButton.addEventListener('click', () => {
+    location.reload()
+    queryParameter = 'nature'
+    localStorage.setItem('queryParameter', JSON.stringify(queryParameter))
+    let apiUrl = `https://api.unsplash.com/photos/random/?client_id=${apiKey}&count=${count}&query=${queryParameter}`
+    getPhotos()
+})
+
+cityButton.addEventListener('click', () => {
+    location.reload()
+    queryParameter = 'city'
+    localStorage.setItem('queryParameter', JSON.stringify(queryParameter))
+    let apiUrl = `https://api.unsplash.com/photos/random/?client_id=${apiKey}&count=${count}&query=${queryParameter}`
+    getPhotos()
+})
+
+catsButton.addEventListener('click', () => {
+    location.reload()
+    queryParameter = 'cats'
+    localStorage.setItem('queryParameter', JSON.stringify(queryParameter))
+    let apiUrl = `https://api.unsplash.com/photos/random/?client_id=${apiKey}&count=${count}&query=${queryParameter}`
+    getPhotos()
+})
+
+dogsButton.addEventListener('click', () => {
+    location.reload()
+    queryParameter = 'dogs'
+    localStorage.setItem('queryParameter', JSON.stringify(queryParameter))
+    let apiUrl = `https://api.unsplash.com/photos/random/?client_id=${apiKey}&count=${count}&query=${queryParameter}`
+    getPhotos()
 })
