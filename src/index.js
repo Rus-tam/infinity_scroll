@@ -28,7 +28,7 @@ const getQueryParameter = () => {
 
 let queryParameter = getQueryParameter()
 // Unsplash API
-let count = 5
+let count = 15
 const apiKey = 'FKqHOTgeujR0boBSA4NHJTez2AlbMP8d36AF2-71rCw'
 let apiUrl = `https://api.unsplash.com/photos/random/?client_id=${apiKey}&count=${count}&query=${queryParameter}`
 
@@ -40,7 +40,7 @@ const imageLoaded = () => {
     if (imagesLoaded === totalImages) {
         ready = true
         loader.hidden = true
-        count = 15
+        count = 30
         apiUrl =`https://api.unsplash.com/photos/random/?client_id=${apiKey}&count=${count}&query=${queryParameter}`
     }
 }
